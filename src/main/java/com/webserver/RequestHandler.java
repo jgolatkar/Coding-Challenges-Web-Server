@@ -1,11 +1,17 @@
 package com.webserver;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class RequestHandler implements Runnable {
 
-    private static final String WEB_DIRECTORY = "F:\\Coding-Challenges-Web-Server\\src\\www";
+    private static final String WEB_DIRECTORY = "/Coding-Challenges-Web-Server/src/www";
     private static final String DEFAULT_PATH = "/";
     private static final String ROOT = "/";
 
@@ -48,6 +54,7 @@ public class RequestHandler implements Runnable {
             }
 
             serverResponseWriter.flush();
+
             clientInputReader.close();
             serverResponseWriter.close();
             socket.close();
